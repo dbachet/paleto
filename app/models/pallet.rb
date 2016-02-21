@@ -1,0 +1,3 @@
+class Pallet < CDQManagedObject
+
+end

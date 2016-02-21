@@ -1,5 +1,14 @@
 schema "0001 initial" do
 
+  entity "Pallet" do
+    float :longitude
+    float :latitude
+    string :title
+
+    datetime :created_at
+    datetime :updated_at
+  end
+
   # Examples:
   #
   # entity "Person" do

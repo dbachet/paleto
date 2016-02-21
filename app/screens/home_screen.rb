@@ -1,40 +1,22 @@
 class HomeScreen < PM::Screen
-  title "Your title here"
+  title "Paleto"
   stylesheet HomeScreenStylesheet
+  nav_bar true, {
+    nav_controller: PM::NavigationController,
+    toolbar: false,
+    transition_style: UIModalTransitionStyleCrossDissolve,
+    presentation_style: UIModalPresentationFormSheet,
+  }
 
   def on_load
-    set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
-    set_nav_bar_button :right, title: "Right", action: :nav_right_button
-
-    @image_url = append!(UITextField, :image_url)
-
-    append(UIButton, :go_button).on(:touch) do |sender|
-      @sample_image.remote_image = @image_url.text
-      @image_url.resignFirstResponder # Closes keyboard
+    append(UIButton, :go_to_pallets_map_button).on(:touch) do |sender|
+      open PalletsMapScreen.new(nav_bar: true)
     end
 
-    @sample_image = append!(UIImageView, :sample_image)
+    append(UIButton, :go_to_add_pallet_map_button).on(:touch) do |sender|
+      open AddPalletMapScreen.new(nav_bar: true)
+    end
   end
-
-  def nav_left_button
-    mp 'Left button'
-  end
-
-  def nav_right_button
-    mp 'Right button'
-  end
-
-  # You don't have to reapply styles to all UIViews, if you want to optimize, another way to do it
-  # is tag the views you need to restyle in your stylesheet, then only reapply the tagged views, like so:
-  #   def logo(st)
-  #     st.frame = {t: 10, w: 200, h: 96}
-  #     st.centered = :horizontal
-  #     st.image = image.resource('logo')
-  #     st.tag(:reapply_style)
-  #   end
-  #
-  # Then in will_animate_rotate
-  #   find(:reapply_style).reapply_styles#
 
   # Remove the following if you're only using portrait
   def will_animate_rotate(orientation, duration)

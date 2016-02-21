@@ -9,7 +9,8 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     cdq.setup # Remove this if you aren't using CDQ
-    open PalletsMapScreen.new(nav_bar: true)
+    #open PalletsMapScreen.new(nav_bar: true)
+    open HomeScreen.new(nav_bar: true)
   end
 
   # Remove this if you are only supporting portrait

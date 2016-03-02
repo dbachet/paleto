@@ -19,8 +19,15 @@ class PalletsMapScreen < PM::MapScreen
         longitude: pallet.longitude,
         latitude: pallet.latitude,
         title: pallet.title,
-        pin_color: :red
+        pin_color: :red,
+        action: :my_action, # Overrides :right_accessory
+        action_button_type: UIButtonTypeContactAdd # Defaults to UIButtonTypeDetailDisclosure
       }
     end
+  end
+
+  def my_action
+    selected = selected_annotations.first
+    open AnnotationDetailsScreen
   end
 end

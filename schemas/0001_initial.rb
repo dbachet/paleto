@@ -4,6 +4,7 @@ schema "0001 initial" do
     float :longitude
     float :latitude
     string :title
+    string :description
 
     datetime :created_at
     datetime :updated_at

@@ -5,6 +5,7 @@ gem "cocoapods", "0.37.2"
 gem "motion-cocoapods"
 gem "redpotion"
 gem 'ProMotion-map'
+gem 'ProMotion-XLForm'
 gem "cdq" # Core Data
 gem "motion-yaml", "1.4" # Version 1.5 breaks CDQ
 #gem "afmotion" # Networking
